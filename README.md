@@ -12,6 +12,12 @@ bloxberg (sans b majuscule) est la blockchain pour la science avec le plus grand
 La mission de bloxberg est de faire progresser la science avec sa propre infrastructure de blockchain et de permettre à la société dans son ensemble de sécuriser les données.<br>
 Dédiée à cette mission, l'association bloxberg facilite et accélère l'usage de la blockchain décentralisée bloxberg et les applications scientifiques fonctionnant sur cette blockchain.
 
+## Usage
+
+Il suffit simplement de lancer le script avec comme paramètres votre clé API bloxberg et l'adresse de votre wallet bloxberg.
+
+`./metadata-bloxberg-certify.sh BLOXBERG_API_KEY BLOXBERG_WALLET_ADDRESS`
+
 ## Prérequis
 
 Ce script fonctionne sous Linux, assurez-vous que les programmes suivants soient installés :
@@ -23,12 +29,6 @@ Vous devez également posséder :
 
 - Une une clé [API bloxberg](https://certify.bloxberg.org/docs)
 - Une [adresse de portefeuille](https://blockexplorer.bloxberg.org/address/0xC604ffa8adE14dc9A22B6B19bdFC07E489156E53/transactions) (Wallet address) sur la blockchain bloxberg
-
-## Usage
-
-Il suffit de lancer le script avec comme paramètres votre clé API bloxberg et l'adresse de votre wallet bloxberg.
-
-`./metadata-bloxberg-certify.sh BLOXBERG_API_KEY BLOXBERG_WALLET_ADDRESS`
 
 ## Support
 
