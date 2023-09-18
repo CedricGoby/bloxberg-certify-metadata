@@ -5,14 +5,11 @@
 Ce script bash génère un fichier de métadonnées pour un jeu de données puis, en utilisant l'[API bloxberg](https://certify.bloxberg.org/docs).<br>
 Il certifie ce fichier de métadonnées sur la blockchain [bloxberg](https://bloxberg.org/) et télécharge le certificat correspondant.
 
-Puisqu'il fait appel à l'API bloxberg ce script peut être adapté dans n'importe quel langage de programmation.
-
+Puisqu'il fait appel à l'API bloxberg ce script peut être adapté dans n'importe quel langage de programmation.<br>
 Il peut ainsi être intégré à n'importe quel logiciel open source existant pour authentifier et certifier des données sur la blockchain bloxberg.
 
-bloxberg (sans b majuscule) est la blockchain pour la science avec le plus grand réseau de PoA (Proof of Authority) au monde, géré uniquement par des organismes de recherche.
-
-La mission de bloxberg est de faire progresser la science avec sa propre infrastructure de blockchain et de permettre à la société dans son ensemble de sécuriser les données.
-
+bloxberg (sans b majuscule) est la blockchain pour la science avec le plus grand réseau de PoA (Proof of Authority) au monde, géré uniquement par des organismes de recherche.<br>
+La mission de bloxberg est de faire progresser la science avec sa propre infrastructure de blockchain et de permettre à la société dans son ensemble de sécuriser les données.<br>
 Dédiée à cette mission, l'association bloxberg facilite et accélère l'usage de la blockchain décentralisée bloxberg et les applications scientifiques fonctionnant sur cette blockchain.
 
 ## Prérequis
