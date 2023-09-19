@@ -156,7 +156,8 @@ fi
 _expected_json_response='[{"@context":["https://www.w3.org/2018/credentials/v1",'
 # Formatage de la réponse JSON sur une ligne.
 _one_line_json_response=$(jq -c . $_json_response)
-# Erreur si la réponse ne commence pas par la séquence attendue.
+# Erreur si la réponse ne commence pas par la séquence attendue, écriture de la (mauvaise) réponse
+# dans le fichier de log.
 if [[ ! "$_one_line_json_response" =~ ^"$_expected_json_response" ]]; then
     echo "$(date) - JSON error : $(cat $_json_response)" | tee -a $_error_log
     exit 1
