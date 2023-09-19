@@ -52,7 +52,7 @@ cat >$_metadata_file << EOF
   "dc:identifier": [
 EOF
 
-# Insertion dans le fichier de métadonnées de l'URI et du HASH pour chaque fichier markdown (.md) du jeu de données.
+# Insertion dans le fichier de métadonnées de l'URI et de la SOMME DE CONTRÔLE pour chaque fichier markdown (.md) du jeu de données.
 for _file in $(ls -t $_dataset_folder/*.md); do
 cat >>metadata.json << EOF
     {
