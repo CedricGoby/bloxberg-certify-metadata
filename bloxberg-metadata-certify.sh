@@ -9,7 +9,7 @@
 # Auteur : Cédric Goby
 # Versioning : https://forgemia.inra.fr/blockchain-esr/bloxberg-certify-metadata
 
-# Vérifier si la clef API a été fournie comme paramètre positionnel
+# Vérifier si la clef API et l'adresse du wallet bloxberg ont été fournies comme paramètres positionnels
 if [ -z "$1" ] || [ -z "$2" ]; then
   echo "Vous n'avez pas fourni votre clé API bloxberg et/ou l'adresse de votre wallet bloxberg"
   echo "Usage : ./metadata-bloxberg-certify.sh BLOXBERG_API_KEY BLOXBERG_WALLET_ADDRESS"
