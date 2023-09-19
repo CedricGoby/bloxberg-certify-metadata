@@ -75,6 +75,8 @@ cat >>$_metadata_file << EOF
  }
 EOF
 
+# TODO : Générer un fichier README.txt (lisible par les humains) à partir du fichier de métadonnées JSON.
+
 # --------------------------------------------------------------------------------------------
 # Écriture dans un fichier de la valeur JSON pour la clé "metadataJson" de l'API bloxberg.
 # --------------------------------------------------------------------------------------------
