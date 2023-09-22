@@ -20,16 +20,19 @@ fi
 # Génération du fichier de métadonnées "metadata.json" pour un jeu de données.
 # --------------------------------------------------------------------------------------------
 # Chemin du répertoire contenant le jeu de données.
-_dataset_folder=
+# *** Dans l'exemple ci-dessous il s'agit d'un répertoire local contenant des newsletters mensuelles sur la sécurité informatique au format MARKDOWN.
+# *** Chaque mois la nouvelle newsletter est envoyée (push) sur Gitlab : https://gitlab.com/CedricGoby/newsletter-securite-informatique/ 
+# *** ainsi que le nouveau fichier "metadata.json" incluant cette nouvelle newsletter (un nouveau fichier MARDOWN).
+_dataset_folder=/home/cedric/newsletter-securite-informatique
 # Nom du fichier de métadonnées.
 _metadata_file=metadata.json
 # Réinitialisation du fichier.
 >$_metadata_file
 
 # Insertion du début du fichier de métadonnées.
-# Utilisation du standard DUBLIN CORE (https://www.dublincore.org/specifications/dublin-core/dcmi-terms/),
-# du standard PREMIS (https://www.loc.gov/standards/premis/)
-# et du format JSON-LD (https://www.w3.org/TR/json-ld11/) pour décrire le jeu de données.
+# *** Utilisation du standard DUBLIN CORE (https://www.dublincore.org/specifications/dublin-core/dcmi-terms/),
+# *** du standard PREMIS (https://www.loc.gov/standards/premis/)
+# *** et du format JSON-LD (https://www.w3.org/TR/json-ld11/) pour décrire le jeu de données.
 cat >$_metadata_file << EOF
 {
   "@context": {
@@ -52,11 +55,13 @@ cat >$_metadata_file << EOF
   "dc:identifier": [
 EOF
 
-# Insertion dans le fichier de métadonnées de l'URI et de la SOMME DE CONTRÔLE pour chaque fichier markdown (.md) du jeu de données.
+# On classe les fichier MARKDOWN par date pour plus de clarté.
 for _file in $(ls -t $_dataset_folder/*.md); do
+# On insert l'URI et la SOMME DE CONTRÔLE de chaque fichier MARKDOWN (.md) dans le fichier de métadonnées "metadata.json".
+# *** Dans notre exemple l'URI correspond à l'URL Gitlab de chaque fichier MARKDOWN (URL pérennes tant que le dépôt existe).
 cat >>metadata.json << EOF
     {
-      "@value": "https://github.com/CedricGoby/newsletter-securite-informatique/blob/master/$(basename $_file)",
+      "@value": "https://gitlab.com/CedricGoby/newsletter-securite-informatique/-/blob/master/$(basename $_file)",
       "@type": "http://purl.org/dc/terms/URI",
       "premis:hasMessageDigest": {
         "@type": "premis:MessageDigest",
@@ -78,15 +83,16 @@ EOF
 # TODO : Générer un fichier README.txt (lisible par les humains) à partir du fichier de métadonnées JSON.
 
 # --------------------------------------------------------------------------------------------
-# Écriture dans un fichier de la valeur JSON pour la clé "metadataJson" de l'API bloxberg.
+# Écriture dans un fichier TEMPORAIRE de la valeur JSON pour la clé "metadataJson" de l'API bloxberg.
 # --------------------------------------------------------------------------------------------
-# Nom du fichier contenant la valeur pour la clé "metadataJson".
+# Nom du fichier TEMPORAIRE contenant la valeur pour la clé "metadataJson".
 _metadataJson="metadataJson.json"
-# Réinitialisation du fichier
->$_metadataJson
+# Création du fichier TEMPORAIRE
+touch $_metadataJson
 
-# Écriture de la valeur JSON pour la clé "metadataJson" dans le fichier
-# en utilisant le DUBLIN CORE.
+# Écriture de la valeur JSON pour la clé "metadataJson" dans le fichier TEMPORAIRE en utilisant le DUBLIN CORE.
+# *** Dans notre exemple "dc:identifier" correspond à l'URL Gitlab du fichier "metadata.json" (URL pérenne tant que le dépôt existe):
+# *** https://gitlab.com/CedricGoby/newsletter-securite-informatique/-/blob/master/metadata.json
 cat >$_metadataJson << EOF
 {
   "@context": {
@@ -106,27 +112,27 @@ cat >$_metadataJson << EOF
   ],
   "dc:rights":"https://creativecommons.org/licenses/by/4.0/",
   "dc:identifier": {
-    "@value": "https://github.com/CedricGoby/newsletter-securite-informatique/blob/master/$_metadata_file",
+    "@value": "https://gitlab.com/CedricGoby/newsletter-securite-informatique/-/blob/master/$_metadata_file",
     "@type": "http://purl.org/dc/terms/URI"
     }
 }
 EOF
 
 # --------------------------------------------------------------------------------------------
-# Appel à l'API bloxberg pour certifier le fichier de métadonnées.
+# Appel à l'API bloxberg pour certifier le fichier de métadonnées "metadata.json".
 # --------------------------------------------------------------------------------------------
 # Clé API fournie par bloxberg (Paramètre positionnel 1).
 _api_key="$1"
 # Adresse du wallet bloxberg (Paramètre positionnel 2).
 _public_key="$2"
-# Somme de contrôle du fichier de métadonnées (Content Reference IDentifier).
+# SOMME DE CONTRÔLE du fichier de métadonnées "metadata.json" (crid = Content Reference IDentifier).
 _crid=$(sha256sum "$_metadata_file" | awk '{print $1}')
-# Valeur (formatée pour l'API) de la clé "metadataJson".
+# A partir du fichier TEMPORAIRE on formate la valeur de la clé "metadataJson" pour l'API.
 _metadataJson=$(cat $_metadataJson | jq -c . | sed -e 's/"/\\"/g')
-# Nom du fichier contenant la réponse JSON de l'API.
+# Nom du fichier TEMPORAIRE contenant la réponse JSON de l'API.
 _json_response=json_response.json
-# Réinitialisation du fichier.
->$_json_response
+## Création du fichier TEMPORAIRE
+touch $_json_response
 # Nom du fichier de logs (Erreurs).
 _error_log=error.log
 
@@ -183,5 +189,21 @@ curl -X 'POST' \
   -H 'api_key: '"$_api_key"'' \
   -H 'Content-Type: application/json' \
   -d '' -o $_bloxberg_certificate
+
+# Suppression du fichier TEMPORAIRE contenant la valeur pour la clé "metadataJson".
+rm $_metadataJson
+# Suppression du fichier TEMPORAIRE  contenant la réponse JSON de l'API.
+rm $_json_response
+
+# Déplacement du fichier "metadata.json" vers le répertoire contenant le jeu de données (en écrasant le fichier "metadata.json" existant).
+# *** Dans notre exemple on déplace le fichier "metadata.json" dans le répertoire local 
+# *** contenant les newsletters mensuelles sur la sécurité informatique.
+mv -f $_metadataJson $_dataset_folder/$_metadataJson
+
+# Mise à jour du dépôt Gitlab avec le nouveau fichier "metadata.json"
+cd $_dataset_folder
+git add $_metadataJson
+git commit -m "Ajout du fichier de métadonnées"
+git push
 
 exit 0  # Fin du script.
