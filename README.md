@@ -29,7 +29,7 @@ Vous devez également posséder :
 
 - Une une clé [API bloxberg](https://certify.bloxberg.org/docs)
 - Une [adresse de portefeuille](https://blockexplorer.bloxberg.org/address/0xC604ffa8adE14dc9A22B6B19bdFC07E489156E53/transactions) (Wallet address) sur la blockchain bloxberg
-- Un dépôt sur une plateforme (ForgeMIA, Gitlab, Github...)
+- Un dépôt sur une plateforme de type [ForgeMIA](https://forgemia.inra.fr/), [Gitlab](https://gitlab.com/), [Github](https://github.com/)...
 
 ## Support
 
