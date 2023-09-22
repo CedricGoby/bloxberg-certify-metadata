@@ -2,8 +2,7 @@
 
 ## Description
 
-Ce script bash génère un fichier de métadonnées pour un jeu de données puis, en utilisant l'[API bloxberg](https://certify.bloxberg.org/docs).<br>
-Il certifie ce fichier de métadonnées sur la blockchain [bloxberg](https://bloxberg.org/) et télécharge le certificat correspondant.
+Ce script bash génère un fichier de métadonnées pour un jeu de données puis, en utilisant l'[API bloxberg](https://certify.bloxberg.org/docs), il certifie ce fichier de métadonnées sur la blockchain [bloxberg](https://bloxberg.org/) et télécharge le certificat correspondant.
 
 Puisqu'il fait appel à l'API bloxberg ce script peut être adapté dans n'importe quel langage de programmation.<br>
 Il peut ainsi être intégré à n'importe quel logiciel open source existant pour authentifier et certifier des données sur la blockchain bloxberg.
