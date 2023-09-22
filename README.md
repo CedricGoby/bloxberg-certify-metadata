@@ -14,7 +14,7 @@ Dédiée à cette mission, l'association bloxberg facilite et accélère l'usage
 
 ## Usage
 
-Il suffit simplement de lancer le script avec comme paramètres votre clé API bloxberg et l'adresse de votre wallet bloxberg.
+Lancez le script avec comme paramètres votre clé API bloxberg et l'adresse de votre wallet bloxberg.
 
 `./metadata-bloxberg-certify.sh BLOXBERG_API_KEY BLOXBERG_WALLET_ADDRESS`
 
@@ -30,6 +30,7 @@ Vous devez également posséder :
 
 - Une une clé [API bloxberg](https://certify.bloxberg.org/docs)
 - Une [adresse de portefeuille](https://blockexplorer.bloxberg.org/address/0xC604ffa8adE14dc9A22B6B19bdFC07E489156E53/transactions) (Wallet address) sur la blockchain bloxberg
+- Un dépôt sur une plateforme (ForgeMIA, Gitlab, Github...)
 
 ## Support
 
