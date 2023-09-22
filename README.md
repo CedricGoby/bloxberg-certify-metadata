@@ -24,6 +24,7 @@ Ce script fonctionne sous Linux, assurez-vous que les programmes suivants soient
 
 - CURL : [https://curl.se/download.html](https://curl.se/download.html)
 - JQ : [https://jqlang.github.io/jq/download/](https://jqlang.github.io/jq/download/)
+- GIT : [https://git-scm.com/download/linux](https://git-scm.com/download/linux)
 
 Vous devez également posséder :
 
