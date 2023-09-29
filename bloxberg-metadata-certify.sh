@@ -178,7 +178,7 @@ fi
 # Nom du fichier ZIP contenant le certificat au format PDF.
 _bloxberg_certificate=bloxberg-certificate-$_crid.zip
 
-# Envoi de la requête CURL, écriture de la réponse JSON de l'API dans un fichier,
+# Envoi de la requête CURL, téléchargement de l'archive ZIP,
 # récupération du code de réponse HTTP.
 _http_request=$(curl --write-out '%{http_code}' -X 'POST' \
   'https://certify.bloxberg.org/generatePDF' \
