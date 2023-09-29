@@ -171,6 +171,9 @@ if [[ ! "$_one_line_json_response" =~ ^"$_expected_json_response" ]]; then
     exit 1
 fi
 
+# Attente de validation du bloc
+sleep 900
+
 # --------------------------------------------------------------------------------------------
 # Appel à l'API bloxberg pour générer le certificat au format PDF et le télécharger en tant
 # qu'archive ZIP.
