@@ -188,7 +188,7 @@ curl -X 'POST' \
   -H 'accept: application/json' \
   -H 'api_key: '"$_api_key"'' \
   -H 'Content-Type: application/json' \
-  -d '' -o $_bloxberg_certificate
+  -d ''"$(cat $_json_response)"'' -o $_bloxberg_certificate
 
 # Suppression du fichier TEMPORAIRE contenant la valeur pour la clé "metadataJson".
 rm $_metadataJson
