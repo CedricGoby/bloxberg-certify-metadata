@@ -197,9 +197,9 @@ fi
 # TODO : Extraire l'archive.
 
 # Suppression du fichier TEMPORAIRE contenant la valeur pour la clé "metadataJson".
-rm $_metadataJson
+#rm $_metadataJson
 # Suppression du fichier TEMPORAIRE  contenant la réponse JSON de l'API.
-rm $_json_response
+#rm $_json_response
 
 # Déplacement du fichier "metadata.json" vers le répertoire contenant le jeu de données (en écrasant le fichier "metadata.json" existant).
 # *** Dans notre exemple on déplace le fichier "metadata.json" dans le répertoire local /home/cedric/newsletter-securite-informatique
