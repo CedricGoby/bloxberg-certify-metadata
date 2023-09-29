@@ -171,7 +171,7 @@ if [[ ! "$_one_line_json_response" =~ ^"$_expected_json_response" ]]; then
     exit 1
 fi
 
-# FIXME : Attente de validation du bloc
+# FIXME : Délai de validation du bloc ?
 sleep 900
 
 # --------------------------------------------------------------------------------------------
