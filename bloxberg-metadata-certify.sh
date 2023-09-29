@@ -23,7 +23,7 @@ fi
 # *** Dans l'exemple ci-dessous il s'agit d'un répertoire local contenant des newsletters mensuelles sur la sécurité informatique au format MARKDOWN.
 # *** Chaque mois la nouvelle newsletter est envoyée (push) sur Gitlab : https://gitlab.com/CedricGoby/newsletter-securite-informatique/ 
 # *** ainsi que le nouveau fichier "metadata.json" incluant cette nouvelle newsletter (un nouveau fichier MARDOWN).
-_dataset_folder=/home/cedric/newsletter-securite-informatique
+_dataset_folder=/home/cedric/Documents/DEV/scripts-rss/newsletter-securite-informatique
 # Nom du fichier de métadonnées.
 _metadata_file=metadata.json
 # Réinitialisation du fichier.
