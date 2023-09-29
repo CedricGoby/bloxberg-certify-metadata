@@ -21,9 +21,7 @@ Lancez le script avec comme paramètres votre clé API bloxberg et l'adresse de 
 
 Ce script fonctionne sous Linux, assurez-vous que les programmes suivants soient installés :
 
-- CURL : [https://curl.se/download.html](https://curl.se/download.html)
-- JQ : [https://jqlang.github.io/jq/download/](https://jqlang.github.io/jq/download/)
-- GIT : [https://git-scm.com/download/linux](https://git-scm.com/download/linux)
+CURL, JQ, GIT, UNZIP
 
 Vous devez également posséder :
 

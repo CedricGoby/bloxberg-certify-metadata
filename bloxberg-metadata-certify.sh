@@ -193,7 +193,6 @@ if [ ${_http_request} -ne 200 ] ; then
     exit 1
 fi
 
-# TODO : Récupérer et vérifier le code de réponse HTTP.
 # TODO : Vérifier la validité du fichier téléchargé.
 # TODO : Extraire l'archive.
 
