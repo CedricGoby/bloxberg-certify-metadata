@@ -198,20 +198,21 @@ fi
 
 # Suppression du fichier TEMPORAIRE contenant la valeur pour la clé "metadataJson".
 #rm $_metadataJson
+
 # Suppression du fichier TEMPORAIRE  contenant la réponse JSON de l'API.
 #rm $_json_response
 
 # Déplacement du fichier "metadata.json" vers le répertoire contenant le jeu de données (en écrasant le fichier "metadata.json" existant).
 # *** Dans notre exemple on déplace le fichier "metadata.json" dans le répertoire local /home/cedric/newsletter-securite-informatique
 # *** contenant les newsletters mensuelles sur la sécurité informatique.
-mv -f $_metadataJson $_dataset_folder/$_metadataJson
+#mv -f $_metadataJson $_dataset_folder/$_metadataJson
 
 # Mise à jour du dépôt Gitlab avec le nouveau fichier "metadata.json"
 # *** Dans notre exemple on envoi (push) le fichier /home/cedric/newsletter-securite-informatique/metadata.json vers
 # *** le dépôt https://gitlab.com/CedricGoby/newsletter-securite-informatique/
-cd $_dataset_folder
-git add $_metadataJson
-git commit -m "Ajout du fichier de métadonnées"
-git push
+#cd $_dataset_folder
+#git add $_metadataJson
+#git commit -m "Ajout du fichier de métadonnées"
+#git push
 
 exit 0  # Fin du script.
