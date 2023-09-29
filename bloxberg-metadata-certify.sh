@@ -180,12 +180,18 @@ _bloxberg_certificate=bloxberg-certificate-$_crid.zip
 
 # Envoi de la requête CURL, écriture de la réponse JSON de l'API dans un fichier,
 # récupération du code de réponse HTTP.
-curl -X 'POST' \
+_http_request=$(curl --write-out '%{http_code}' -X 'POST' \
   'https://certify.bloxberg.org/generatePDF' \
   -H 'accept: application/json' \
   -H 'api_key: '"$_api_key"'' \
   -H 'Content-Type: application/json' \
-  -d ''"$(cat $_json_response)"'' -o $_bloxberg_certificate
+  -d ''"$(cat $_json_response)"'' -o $_bloxberg_certificate)
+
+# Vérification du code de retour HTTP (Code 200 attendu).
+if [ ${_http_request} -ne 200 ] ; then
+    echo "$(date) - HTTP error : $_http_request" | tee -a $_error_log
+    exit 1
+fi
 
 # TODO : Récupérer et vérifier le code de réponse HTTP.
 # TODO : Vérifier la validité du fichier téléchargé.
