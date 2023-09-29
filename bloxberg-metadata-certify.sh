@@ -178,17 +178,18 @@ fi
 # Nom du fichier ZIP contenant le certificat au format PDF.
 _bloxberg_certificate=bloxberg-certificate-$_crid.zip
 
-# Envoi de la requête CURL
-# TODO : Insérer la réponse JSON (-d '').
-# TODO : Récupérer et vérifier le code de réponse HTTP.
-# TODO : Vérifier la validité du fichier téléchargé.
-# TODO : Extraire l'archive.
+# Envoi de la requête CURL, écriture de la réponse JSON de l'API dans un fichier,
+# récupération du code de réponse HTTP.
 curl -X 'POST' \
   'https://certify.bloxberg.org/generatePDF' \
   -H 'accept: application/json' \
   -H 'api_key: '"$_api_key"'' \
   -H 'Content-Type: application/json' \
   -d ''"$(cat $_json_response)"'' -o $_bloxberg_certificate
+
+# TODO : Récupérer et vérifier le code de réponse HTTP.
+# TODO : Vérifier la validité du fichier téléchargé.
+# TODO : Extraire l'archive.
 
 # Suppression du fichier TEMPORAIRE contenant la valeur pour la clé "metadataJson".
 rm $_metadataJson
