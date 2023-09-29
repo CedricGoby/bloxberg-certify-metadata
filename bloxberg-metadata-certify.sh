@@ -185,7 +185,7 @@ _http_request=$(curl --write-out '%{http_code}' -X 'POST' \
   -H 'accept: application/json' \
   -H 'api_key: '"$_api_key"'' \
   -H 'Content-Type: application/json' \
-  -d ''"$(cat $_json_response)"'' -o $_bloxberg_certificate)
+  -d ''"$(cat $_json_response)"'' --output $_bloxberg_certificate --silent)
 
 # Vérification du code de retour HTTP (Code 200 attendu).
 if [ ${_http_request} -ne 200 ] ; then
