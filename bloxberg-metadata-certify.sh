@@ -193,7 +193,7 @@ if [ ${_http_request} -ne 200 ] ; then
     exit 1
 fi
 
-# TODO : Vérifier la validité du fichier téléchargé.
+# TODO : Vérifier l'intégrité du fichier téléchargé.
 # TODO : Extraire l'archive.
 
 # Suppression du fichier TEMPORAIRE contenant la valeur pour la clé "metadataJson".
