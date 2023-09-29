@@ -176,7 +176,7 @@ fi
 # qu'archive ZIP.
 # --------------------------------------------------------------------------------------------
 # Nom du fichier ZIP contenant le certificat au format PDF.
-_bloxberg_certificate=bloxberg-certificate-$_crid
+_bloxberg_certificate=bloxberg-certificate-$_crid.zip
 
 # Envoi de la requête CURL
 # TODO : Insérer la réponse JSON (-d '').
