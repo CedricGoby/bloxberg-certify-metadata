@@ -219,10 +219,6 @@ else
     exit 1  # Quitter le script avec un code d'erreur
 fi
 
-
-# TODO : Vérifier l'intégrité du fichier téléchargé.
-# TODO : Extraire l'archive.
-
 # --------------------------------------------------------------------------------------------
 # ETAPE 4
 # --------------------------------------------------------------------------------------------
@@ -240,7 +236,7 @@ mv -f metadata.json $3/metadata.json
 # --------------------------------------------------------------------------------------------
 cd $3
 git add *
-git commit -m "Ajout du fichier de métadonnées"
+git commit -m "bloxberg certify metadata"
 git push
 
 exit 0  # Fin du script.
