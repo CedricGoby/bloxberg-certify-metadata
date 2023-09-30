@@ -110,7 +110,7 @@ cat >$_metadataJson << EOF
     "http://viaf.org/viaf/3881157583857733970006",
     "http://viaf.org/viaf/314926296"
   ],
-  "dc:rights":"https://creativecommons.org/licenses/by/4.0/",
+  "dc:rights":"http://spdx.org/licenses/CC-BY-NC-SA-4.0.json",
   "dc:identifier": {
     "@value": "https://gitlab.com/CedricGoby/newsletter-securite-informatique/-/blob/master/$_metadata_file",
     "@type": "http://purl.org/dc/terms/URI"
