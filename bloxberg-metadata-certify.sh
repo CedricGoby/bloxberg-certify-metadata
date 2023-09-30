@@ -201,8 +201,6 @@ fi
 # Tente d'extraire le fichier zip dans le répertoire courant
 if unzip -q $_bloxberg_certificate ; then
     mv -f $_bloxberg_certificate $3/$_bloxberg_certificate
-    # Votre action en cas de succès
-    # Par exemple, vous pouvez effectuer d'autres opérations sur les fichiers extraits ici
 else
     echo "Erreur lors de l'extraction du fichier zip."
     exit 1  # Quitter le script avec un code d'erreur
