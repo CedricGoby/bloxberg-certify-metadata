@@ -48,7 +48,7 @@ cat >metadata.json << EOF
   "dc:rights":"http://spdx.org/licenses/CC-BY-NC-SA-4.0.json",
   "dc:identifier": [
 EOF
-# On insert l'URI pérenne et la SOMME DE CONTRÔLE de chaque fichier markdown dans le fichier "metadata.json".
+# On insert l'URI pérenne et la SOMME DE CONTRÔLE de chaque fichier markdown du jeu de données dans le fichier "metadata.json".
 for _file in $(ls -t $3/*.md); do
 cat >>metadata.json << EOF
     {
