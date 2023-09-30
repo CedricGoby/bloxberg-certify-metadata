@@ -203,7 +203,7 @@ fi
 # --------------------------------------------------------------------------------------------
 # Extraction du certificat au format PDF contenu dans le fichier ZIP.
 # --------------------------------------------------------------------------------------------
-# Récupération du nom du fichier PDF
+# Récupération du nom du fichier PDF contenu dans le fichier ZIP.
 _bloxberg_certificate_PDF=$(unzip -l $_bloxberg_certificate | awk '$4 ~ /\.pdf$/ {print $4}')
 
 # Extraction du fichier PDF
