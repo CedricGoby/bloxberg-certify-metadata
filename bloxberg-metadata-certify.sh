@@ -3,7 +3,7 @@
 # Description : Ce script génère un fichier de métadonnées pour un jeu de données puis, en utilisant
 # l'API bloxberg, il certifie ce fichier de métadonnées sur la blockchain bloxberg
 # et télécharge le certificat au format PDF.
-# Usage : ./metadata-bloxberg-certify.sh CLÉ_API_BLOXBERG WALLET_BLOXBERG JEU_DE_DONNÉES
+# Usage : ./metadata-bloxberg-certify.sh CLÉ_API_BLOXBERG WALLET_BLOXBERG REPERTOIRE_JEU_DE_DONNÉES
 # Référence API bloxberg : https://certify.bloxberg.org/docs
 # Licence : GPL-3+ (https://www.gnu.org/licenses/gpl-3.0.txt)
 # Auteur : Cédric Goby
@@ -14,7 +14,7 @@
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
   echo "Vous n'avez pas fourni votre clé API bloxberg, l'adresse de votre wallet bloxberg"
   echo "ou le chemin vers votre jeu de données"
-  echo "Usage : ./metadata-bloxberg-certify.sh CLÉ_API_BLOXBERG WALLET_BLOXBERG JEU_DE_DONNÉES"
+  echo "Usage : ./metadata-bloxberg-certify.sh CLÉ_API_BLOXBERG WALLET_BLOXBERG REPERTOIRE_JEU_DE_DONNÉES"
   exit 1  # Quitter le script avec un code d'erreur
 fi
 
