@@ -208,7 +208,7 @@ _bloxberg_certificate_PDF=$(unzip -l $_bloxberg_certificate | awk '$4 ~ /\.pdf$/
 
 # Extraction du fichier PDF
 if ! unzip -q $_bloxberg_certificate ; then
-    echo "Erreur lors de l'extraction du fichier zip."
+    echo "Erreur lors de l'extraction."
     exit 1  # Quitter le script avec un code d'erreur
 else
     # Déplacement du certificat au format PDF vers le répertoire contenant le jeu de données.
