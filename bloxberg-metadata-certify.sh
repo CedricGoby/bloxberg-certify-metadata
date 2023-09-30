@@ -205,8 +205,8 @@ fi
 # --------------------------------------------------------------------------------------------
 # ETAPE 4
 # --------------------------------------------------------------------------------------------
-# Appel à l'API bloxberg pour télécharger le certificat du fichier "metadata.json" au format PDF.
-# Le contenu JSON qui doit être envoyé à l'API est la réponse JSON obtenue à l'issue de la certification (ETAPE 2)
+# Mise en place du fichier de métadonnées "metadata.json" dans le répertoire contenant le jeu de données
+# et mise à jour du dépôt.
 # --------------------------------------------------------------------------------------------
 #mv -f metadata.json $3/metadata.json
 
