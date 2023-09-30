@@ -204,10 +204,16 @@ if [ ${_http_request} -ne 200 ] ; then
 fi
 
 # --------------------------------------------------------------------------------------------
-# Extraction du fichier zip.
+# Extraction du certificat au format PDF contenu dans le fichier ZIP.
 # --------------------------------------------------------------------------------------------
+
+# Récupération du nom du fichier PDF
+_bloxberg_certificate_PDF=$(unzip -l $_bloxberg_certificate | awk '$4 ~ /\.pdf$/ {print $4}')
+
+# Extraction du fichier PDF
 if unzip -q $_bloxberg_certificate ; then
-    mv -f $_bloxberg_certificate $3/$_bloxberg_certificate
+    # Déplacement du certificat au format PDF vers le répertoire contenant le jeu de données.
+    mv -f $_bloxberg_certificate_PDF $3/$_bloxberg_certificate_PDF
 else
     echo "Erreur lors de l'extraction du fichier zip."
     exit 1  # Quitter le script avec un code d'erreur
