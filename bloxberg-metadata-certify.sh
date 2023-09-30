@@ -118,9 +118,9 @@ EOF
 _api_key="$1"
 # Adresse du wallet bloxberg (Paramètre positionnel 2).
 _public_key="$2"
-# SOMME DE CONTRÔLE du fichier de métadonnées "metadata.json" (crid = Cryptographic Identifier).
+# SOMME DE CONTRÔLE du fichier de métadonnées "metadata.json" (crid = "Cryptographic Identifier").
 _crid=$(sha256sum "$_metadata_file" | awk '{print $1}')
-# A partir du fichier contenant la valeur de la clé "metadataJson" on formate la valeur de la clé pour l'API.
+# A partir du fichier contenant la valeur de la clé "metadataJson" on formate la valeur de cette clé pour l'API.
 _metadataJson=$(cat $_metadataJson | jq -c . | sed -e 's/"/\\"/g')
 # Nom du fichier contenant la réponse JSON de l'API.
 _json_response=bloxberg_json_response.json
