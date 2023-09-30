@@ -208,12 +208,18 @@ fi
 # Mise en place du fichier de métadonnées "metadata.json" dans le répertoire contenant le jeu de données
 # et mise à jour du dépôt.
 # --------------------------------------------------------------------------------------------
-#mv -f metadata.json $3/metadata.json
 
+# --------------------------------------------------------------------------------------------
+# Déplacement du fichier "metadata.json vers le répertoire contenant le jeu de données.
+# --------------------------------------------------------------------------------------------
+mv -f metadata.json $3/metadata.json
+
+# --------------------------------------------------------------------------------------------
 # Mise à jour du dépôt Gitlab avec le nouveau fichier "metadata.json"
-#cd $3
-#git add metadata.json
-#git commit -m "Ajout du fichier de métadonnées"
-#git push
+# --------------------------------------------------------------------------------------------
+cd $3
+git add metadata.json
+git commit -m "Ajout du fichier de métadonnées"
+git push
 
 exit 0  # Fin du script.
