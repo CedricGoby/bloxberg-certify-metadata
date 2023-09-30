@@ -176,6 +176,7 @@ sleep 900
 # ETAPE 3
 # --------------------------------------------------------------------------------------------
 # Appel à l'API bloxberg pour télécharger le certificat du fichier "metadata.json" au format PDF.
+# Le contenu JSON qui doit être envoyé à l'API est la réponse JSON obtenue à l'issue de la certification (ETAPE 2)
 # --------------------------------------------------------------------------------------------
 # Nom du fichier ZIP téléchargé contenant le certificat au format PDF.
 _bloxberg_certificate=bloxberg_certificate-crid-$_crid.zip
