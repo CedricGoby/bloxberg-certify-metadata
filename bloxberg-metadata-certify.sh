@@ -204,7 +204,7 @@ if unzip -q $_bloxberg_certificate ; then
     # Votre action en cas de succès
     # Par exemple, vous pouvez effectuer d'autres opérations sur les fichiers extraits ici
 else
-    echo "Erreur lors de l'extraction du fichier zip. Le fichier zip est peut-être corrompu."
+    echo "Erreur lors de l'extraction du fichier zip."
     exit 1  # Quitter le script avec un code d'erreur
 fi
 
