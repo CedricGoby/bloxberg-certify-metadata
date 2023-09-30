@@ -169,9 +169,9 @@ fi
 sleep 900
 
 # --------------------------------------------------------------------------------------------
-# ETAPE 3 - Téléchargement du certificat PDF bloxberg pour le fichier "metadata.json"
+# ETAPE 3 - Téléchargement du certificat bloxberg au format PDF pour le fichier "metadata.json"
 # --------------------------------------------------------------------------------------------
-# Le certificat PDF bloxberg contient les éléments suivants :
+# Le certificat bloxberg au format PDF contient les éléments suivants :
 # - Cryptographic Identifier : Somme de contrôle du fichier "metadata.json".
 # - Transaction ID : Identifiant de la transaction sur la blockchain bloxberg.
 # - Timestamp : Horodatage de la transaction.
