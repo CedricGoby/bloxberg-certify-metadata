@@ -232,7 +232,8 @@ fi
 mv -f metadata.json $3/metadata.json
 
 # --------------------------------------------------------------------------------------------
-# Mise à jour du dépôt Gitlab avec le nouveau fichier "metadata.json" et le certificat bloxberg au format PDF.
+# Mise à jour du dépôt Gitlab avec la nouvelle version du fichier "metadata.json"
+# et le certificat bloxberg au format PDF.
 # --------------------------------------------------------------------------------------------
 cd $3
 git add *
