@@ -222,8 +222,8 @@ fi
 # --------------------------------------------------------------------------------------------
 # ETAPE 4
 # --------------------------------------------------------------------------------------------
-# Mise en place du fichier de métadonnées "metadata.json" dans le répertoire contenant le jeu de données
-# et mise à jour du dépôt Gitlab.
+# Mise en place du fichier de métadonnées "metadata.json" et du certificat bloxberg 
+# dans le répertoire contenant le jeu de données et mise à jour du dépôt Gitlab.
 # --------------------------------------------------------------------------------------------
 
 # --------------------------------------------------------------------------------------------
