@@ -125,7 +125,7 @@ _json_response=bloxberg_json_response.json
 _error_log=error.log
 
 # --------------------------------------------------------------------------------------------
-# Appel de l'API avec CURL, écriture de la réponse JSON de l'API dans un fichier
+# Requête CURL vers l'API bloxberg (/createBloxbergCertificate), écriture de la réponse JSON de l'API dans un fichier
 # et récupération du code de réponse HTTP.
 # --------------------------------------------------------------------------------------------
 _http_request=$(curl --write-out '%{http_code}' -X 'POST' \
@@ -183,7 +183,7 @@ sleep 900
 _bloxberg_certificate=bloxberg_certificate-crid-$_crid.zip
 
 # --------------------------------------------------------------------------------------------
-# Envoi de la requête CURL, téléchargement du fichier ZIP et récupération du code de réponse HTTP.
+# Requête CURL vers l'API bloxberg (/generatePDF), téléchargement du fichier ZIP et récupération du code de réponse HTTP.
 # --------------------------------------------------------------------------------------------
 _http_request=$(curl --write-out '%{http_code}' -X 'POST' \
   'https://certify.bloxberg.org/generatePDF' \
