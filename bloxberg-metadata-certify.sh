@@ -125,8 +125,8 @@ _json_response=bloxberg_json_response.json
 _error_log=error.log
 
 # --------------------------------------------------------------------------------------------
-# Requête CURL vers l'API bloxberg (/createBloxbergCertificate), écriture de la réponse JSON de l'API dans un fichier
-# et récupération du code de réponse HTTP.
+# Requête CURL vers l'API bloxberg (/createBloxbergCertificate),
+# vérification du code de réponse HTTP et écriture de la réponse JSON dans un fichier.
 # --------------------------------------------------------------------------------------------
 _http_request=$(curl --write-out '%{http_code}' -X 'POST' \
   'https://certify.bloxberg.org/createBloxbergCertificate' \
@@ -169,11 +169,9 @@ fi
 sleep 900
 
 # --------------------------------------------------------------------------------------------
-# ETAPE 3 - Téléchargement au format PDF du certificat bloxberg pour le fichier "metadata.json"
+# ETAPE 3 - Téléchargement du certificat PDF bloxberg pour le fichier "metadata.json"
 # --------------------------------------------------------------------------------------------
-# Appel à l'API bloxberg pour télécharger le certificat du fichier "metadata.json" au format PDF.
-# Le contenu JSON qui doit être envoyé à l'API est la réponse JSON obtenue à l'issue de la certification (ETAPE 2)
-# Le certificat contient les éléments suivants :
+# Le certificat PDF bloxberg contient les éléments suivants :
 # - Cryptographic Identifier : Somme de contrôle du fichier "metadata.json".
 # - Transaction ID : Identifiant de la transaction sur la blockchain bloxberg.
 # - Timestamp : Horodatage de la transaction.
@@ -183,7 +181,9 @@ sleep 900
 _bloxberg_certificate=bloxberg_certificate-crid-$_crid.zip
 
 # --------------------------------------------------------------------------------------------
-# Requête CURL vers l'API bloxberg (/generatePDF), téléchargement du fichier ZIP et récupération du code de réponse HTTP.
+# Requête CURL vers l'API bloxberg (/generatePDF),
+# vérification du code de réponse HTTP et téléchargement du fichier ZIP.
+# Le contenu JSON qui doit être envoyé à l'API est la réponse JSON obtenue à l'issue de la certification (ETAPE 2)
 # --------------------------------------------------------------------------------------------
 _http_request=$(curl --write-out '%{http_code}' -X 'POST' \
   'https://certify.bloxberg.org/generatePDF' \
