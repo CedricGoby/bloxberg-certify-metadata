@@ -202,13 +202,17 @@ fi
 # TODO : Vérifier l'intégrité du fichier téléchargé.
 # TODO : Extraire l'archive.
 
-#mv -f $_metadataJson $_dataset_folder/$_metadataJson
+# --------------------------------------------------------------------------------------------
+# ETAPE 4
+# --------------------------------------------------------------------------------------------
+# Appel à l'API bloxberg pour télécharger le certificat du fichier "metadata.json" au format PDF.
+# Le contenu JSON qui doit être envoyé à l'API est la réponse JSON obtenue à l'issue de la certification (ETAPE 2)
+# --------------------------------------------------------------------------------------------
+#mv -f metadata.json $3/metadata.json
 
 # Mise à jour du dépôt Gitlab avec le nouveau fichier "metadata.json"
-# *** Dans notre exemple on envoi (push) le fichier /home/cedric/newsletter-securite-informatique/metadata.json vers
-# *** le dépôt https://gitlab.com/CedricGoby/newsletter-securite-informatique/
-#cd $_dataset_folder
-#git add $_metadataJson
+#cd $3
+#git add metadata.json
 #git commit -m "Ajout du fichier de métadonnées"
 #git push
 
