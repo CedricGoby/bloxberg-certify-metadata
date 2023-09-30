@@ -86,7 +86,7 @@ EOF
 # Écriture dans un fichier TEMPORAIRE de la valeur JSON pour la clé "metadataJson" de l'API bloxberg.
 # --------------------------------------------------------------------------------------------
 # Nom du fichier TEMPORAIRE contenant la valeur pour la clé "metadataJson".
-_metadataJson="metadataJson.json"
+_metadataJson="bloxberg_metadataJson.json"
 # Création du fichier TEMPORAIRE
 touch $_metadataJson
 
@@ -130,7 +130,7 @@ _crid=$(sha256sum "$_metadata_file" | awk '{print $1}')
 # A partir du fichier TEMPORAIRE on formate la valeur de la clé "metadataJson" pour l'API.
 _metadataJson=$(cat $_metadataJson | jq -c . | sed -e 's/"/\\"/g')
 # Nom du fichier TEMPORAIRE contenant la réponse JSON de l'API.
-_json_response=json_response.json
+_json_response=bloxberg_json_response.json
 ## Création du fichier TEMPORAIRE
 touch $_json_response
 # Nom du fichier de logs (Erreurs).
@@ -179,7 +179,7 @@ sleep 900
 # qu'archive ZIP.
 # --------------------------------------------------------------------------------------------
 # Nom du fichier ZIP contenant le certificat au format PDF.
-_bloxberg_certificate=bloxberg-certificate-$_crid.zip
+_bloxberg_certificate=bloxberg_certificate-crid-$_crid.zip
 
 # Envoi de la requête CURL, téléchargement de l'archive ZIP,
 # récupération du code de réponse HTTP.
