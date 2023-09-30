@@ -2,7 +2,7 @@
 #
 # Description : Ce script génère un fichier de métadonnées pour un jeu de données puis, en utilisant
 # l'API bloxberg, il certifie ce fichier de métadonnées sur la blockchain bloxberg
-# et télécharge le certificat correspondant.
+# et télécharge le certificat au format PDF.
 # Usage : ./metadata-bloxberg-certify.sh CLÉ_API_BLOXBERG WALLET_BLOXBERG JEU_DE_DONNÉES
 # Référence API bloxberg : https://certify.bloxberg.org/docs
 # Licence : GPL-3+ (https://www.gnu.org/licenses/gpl-3.0.txt)
