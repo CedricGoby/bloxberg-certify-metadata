@@ -83,7 +83,7 @@ EOF
 # La valeur est au format JSON et utilise le standard Dublin Core.
 # --------------------------------------------------------------------------------------------
 # Nom du fichier contenant la valeur de la clé "metadataJson".
-_metadataJson="bloxberg_metadataJson.json"
+_metadataJson=bloxberg_metadataJson.json
 
 # Création du fichier.
 cat >$_metadataJson << EOF
@@ -115,17 +115,15 @@ EOF
 # Appel à l'API bloxberg pour certifier le fichier de métadonnées "metadata.json" sur la blockchain bloxberg.
 # --------------------------------------------------------------------------------------------
 # Clé API fournie par bloxberg (Paramètre positionnel 1).
-_api_key="$1"
+_api_key=$1
 # Adresse du wallet bloxberg (Paramètre positionnel 2).
-_public_key="$2"
+_public_key=$2
 # SOMME DE CONTRÔLE du fichier de métadonnées "metadata.json" (crid = "Cryptographic Identifier").
-_crid=$(sha256sum "$_metadata_file" | awk '{print $1}')
+_crid=$(sha256sum $_metadata_file | awk '{print $1}')
 # A partir du fichier contenant la valeur de la clé "metadataJson" on formate la valeur de cette clé pour l'API.
 _metadataJson=$(cat $_metadataJson | jq -c . | sed -e 's/"/\\"/g')
 # Nom du fichier contenant la réponse JSON de l'API.
 _json_response=bloxberg_json_response.json
-# Création du fichier contenant la réponse JSON de l'API.
-touch $_json_response
 # Nom du fichier de logs (Erreurs).
 _error_log=error.log
 
