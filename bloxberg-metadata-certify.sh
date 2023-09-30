@@ -124,7 +124,7 @@ _crid=$(sha256sum "$_metadata_file" | awk '{print $1}')
 _metadataJson=$(cat $_metadataJson | jq -c . | sed -e 's/"/\\"/g')
 # Nom du fichier contenant la réponse JSON de l'API.
 _json_response=bloxberg_json_response.json
-## Création du fichier contenant la réponse JSON de l'API.
+# Création du fichier contenant la réponse JSON de l'API.
 touch $_json_response
 # Nom du fichier de logs (Erreurs).
 _error_log=error.log
