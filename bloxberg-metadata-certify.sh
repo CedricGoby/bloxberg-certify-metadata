@@ -21,7 +21,8 @@ fi
 # --------------------------------------------------------------------------------------------
 # ETAPE 1
 # --------------------------------------------------------------------------------------------
-# Création du fichier de métadonnées "metadata.json" pour un jeu de données. 
+# Création du fichier de métadonnées "metadata.json" pour un jeu de données.
+# Le jeu de données est contenu dans un répertoire connecté à un dépôt Gitlab.
 # Le fichier "metadata.json" est au format JSON-LD. Les métadonnées sont décrites en utilisant les standards DUBLIN CORE et PREMIS.
 # --------------------------------------------------------------------------------------------
 
@@ -117,7 +118,7 @@ EOF
 _api_key="$1"
 # Adresse du wallet bloxberg (Paramètre positionnel 2).
 _public_key="$2"
-# SOMME DE CONTRÔLE du fichier de métadonnées "metadata.json" (crid = Content Reference IDentifier).
+# SOMME DE CONTRÔLE du fichier de métadonnées "metadata.json" (crid = Cryptographic Identifier).
 _crid=$(sha256sum "$_metadata_file" | awk '{print $1}')
 # A partir du fichier contenant la valeur de la clé "metadataJson" on formate la valeur de la clé pour l'API.
 _metadataJson=$(cat $_metadataJson | jq -c . | sed -e 's/"/\\"/g')
@@ -196,8 +197,19 @@ _http_request=$(curl --write-out '%{http_code}' -X 'POST' \
 # --------------------------------------------------------------------------------------------
 if [ ${_http_request} -ne 200 ] ; then
     echo "$(date) - HTTP error : $_http_request" | tee -a $_error_log
-    exit 1
+    exit 1  # Quitter le script avec un code d'erreur
 fi
+
+# Tente d'extraire le fichier zip dans le répertoire courant
+if unzip -q $_bloxberg_certificate ; then
+    mv -f $_bloxberg_certificate $3/$_bloxberg_certificate
+    # Votre action en cas de succès
+    # Par exemple, vous pouvez effectuer d'autres opérations sur les fichiers extraits ici
+else
+    echo "Erreur lors de l'extraction du fichier zip. Le fichier zip est peut-être corrompu."
+    exit 1  # Quitter le script avec un code d'erreur
+fi
+
 
 # TODO : Vérifier l'intégrité du fichier téléchargé.
 # TODO : Extraire l'archive.
@@ -206,7 +218,7 @@ fi
 # ETAPE 4
 # --------------------------------------------------------------------------------------------
 # Mise en place du fichier de métadonnées "metadata.json" dans le répertoire contenant le jeu de données
-# et mise à jour du dépôt.
+# et mise à jour du dépôt Gitlab.
 # --------------------------------------------------------------------------------------------
 
 # --------------------------------------------------------------------------------------------
@@ -215,10 +227,10 @@ fi
 mv -f metadata.json $3/metadata.json
 
 # --------------------------------------------------------------------------------------------
-# Mise à jour du dépôt Gitlab avec le nouveau fichier "metadata.json"
+# Mise à jour du dépôt Gitlab avec le nouveau fichier "metadata.json" et le certificat bloxberg au format PDF.
 # --------------------------------------------------------------------------------------------
 cd $3
-git add metadata.json
+git add *
 git commit -m "Ajout du fichier de métadonnées"
 git push
 
