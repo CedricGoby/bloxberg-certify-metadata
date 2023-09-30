@@ -128,7 +128,7 @@ _json_response=bloxberg_json_response.json
 _error_log=error.log
 
 # --------------------------------------------------------------------------------------------
-# Envoi de la requête CURL, écriture de la réponse JSON de l'API dans un fichier
+# Appel à l'API avec CURL, écriture de la réponse JSON de l'API dans un fichier
 # et récupération du code de réponse HTTP.
 # --------------------------------------------------------------------------------------------
 _http_request=$(curl --write-out '%{http_code}' -X 'POST' \
