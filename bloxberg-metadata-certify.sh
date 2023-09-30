@@ -19,13 +19,12 @@ if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
 fi
 
 # --------------------------------------------------------------------------------------------
-# ETAPE 1
+# ETAPE 1 - Création d'un fichier de métadonnées "metadata.json" pour un jeu de données.
 # --------------------------------------------------------------------------------------------
-# Création du fichier de métadonnées "metadata.json" pour un jeu de données.
 # Le jeu de données est contenu dans un répertoire connecté à un dépôt Gitlab.
-# Le fichier "metadata.json" est au format JSON-LD. Les métadonnées sont décrites en utilisant les standards DUBLIN CORE et PREMIS.
+# Le fichier "metadata.json" est au format JSON-LD, les métadonnées sont décrites
+# en utilisant les standards DUBLIN CORE et PREMIS.
 # --------------------------------------------------------------------------------------------
-
 # Début du fichier "metadata.json".
 cat >metadata.json << EOF
 {
@@ -73,9 +72,7 @@ EOF
 # TODO : Générer un fichier README.txt (lisible par les humains) à partir du fichier de métadonnées JSON.
 
 # --------------------------------------------------------------------------------------------
-# ETAPE 2
-# --------------------------------------------------------------------------------------------
-# Certification du fichier "metadata.json" dans la blockchain bloxberg en utilisant l'API bloxberg.
+# ETAPE 2 - Certification du fichier "metadata.json" dans la blockchain bloxberg en utilisant l'API bloxberg.
 # --------------------------------------------------------------------------------------------
 
 # --------------------------------------------------------------------------------------------
@@ -172,7 +169,7 @@ fi
 sleep 900
 
 # --------------------------------------------------------------------------------------------
-# ETAPE 3
+# ETAPE 3 - Téléchargement au format PDF du certificat bloxberg pour le fichier "metadata.json"
 # --------------------------------------------------------------------------------------------
 # Appel à l'API bloxberg pour télécharger le certificat du fichier "metadata.json" au format PDF.
 # Le contenu JSON qui doit être envoyé à l'API est la réponse JSON obtenue à l'issue de la certification (ETAPE 2)
@@ -206,7 +203,6 @@ fi
 # --------------------------------------------------------------------------------------------
 # Extraction du certificat au format PDF contenu dans le fichier ZIP.
 # --------------------------------------------------------------------------------------------
-
 # Récupération du nom du fichier PDF
 _bloxberg_certificate_PDF=$(unzip -l $_bloxberg_certificate | awk '$4 ~ /\.pdf$/ {print $4}')
 
@@ -220,7 +216,7 @@ else
 fi
 
 # --------------------------------------------------------------------------------------------
-# ETAPE 4
+# ETAPE 4 - Mise à jour du dépôt Gitlab
 # --------------------------------------------------------------------------------------------
 # Mise en place du fichier de métadonnées "metadata.json" dans le répertoire
 # contenant le jeu de données et mise à jour du dépôt Gitlab.
@@ -228,11 +224,13 @@ fi
 
 # --------------------------------------------------------------------------------------------
 # Déplacement du fichier "metadata.json vers le répertoire contenant le jeu de données.
+# (on écrase la version précédente dans ce répertoire)
 # --------------------------------------------------------------------------------------------
 mv -f metadata.json $3/metadata.json
 
 # --------------------------------------------------------------------------------------------
-# Mise à jour du dépôt Gitlab avec la nouvelle version du fichier "metadata.json" et le certificat bloxberg au format PDF.
+# Mise à jour du dépôt Gitlab avec la nouvelle version du fichier "metadata.json"
+# et le certificat bloxberg au format PDF.
 # --------------------------------------------------------------------------------------------
 cd $3
 git add *
