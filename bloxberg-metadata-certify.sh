@@ -112,7 +112,7 @@ cat >$_metadataJson << EOF
 EOF
 
 # --------------------------------------------------------------------------------------------
-# Appel à l'API bloxberg pour certifier le fichier de métadonnées "metadata.json" sur la blockchain bloxberg.
+# Appel de l'API bloxberg pour certifier le fichier de métadonnées "metadata.json" sur la blockchain bloxberg.
 # --------------------------------------------------------------------------------------------
 # Clé API fournie par bloxberg (Paramètre positionnel 1).
 _api_key=$1
@@ -128,7 +128,7 @@ _json_response=bloxberg_json_response.json
 _error_log=error.log
 
 # --------------------------------------------------------------------------------------------
-# Appel à l'API avec CURL, écriture de la réponse JSON de l'API dans un fichier
+# Appel de l'API avec CURL, écriture de la réponse JSON de l'API dans un fichier
 # et récupération du code de réponse HTTP.
 # --------------------------------------------------------------------------------------------
 _http_request=$(curl --write-out '%{http_code}' -X 'POST' \
