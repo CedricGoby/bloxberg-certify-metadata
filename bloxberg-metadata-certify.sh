@@ -222,8 +222,8 @@ fi
 # --------------------------------------------------------------------------------------------
 # ETAPE 4
 # --------------------------------------------------------------------------------------------
-# Mise en place du fichier de métadonnées "metadata.json" et du certificat bloxberg 
-# dans le répertoire contenant le jeu de données et mise à jour du dépôt Gitlab.
+# Mise en place du fichier de métadonnées "metadata.json" dans le répertoire
+# contenant le jeu de données et mise à jour du dépôt Gitlab.
 # --------------------------------------------------------------------------------------------
 
 # --------------------------------------------------------------------------------------------
@@ -232,8 +232,7 @@ fi
 mv -f metadata.json $3/metadata.json
 
 # --------------------------------------------------------------------------------------------
-# Mise à jour du dépôt Gitlab avec la nouvelle version du fichier "metadata.json"
-# et le certificat bloxberg au format PDF.
+# Mise à jour du dépôt Gitlab avec la nouvelle version du fichier "metadata.json" et le certificat bloxberg au format PDF.
 # --------------------------------------------------------------------------------------------
 cd $3
 git add *
