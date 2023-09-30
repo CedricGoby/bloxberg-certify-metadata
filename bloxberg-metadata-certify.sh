@@ -176,6 +176,11 @@ sleep 900
 # --------------------------------------------------------------------------------------------
 # Appel à l'API bloxberg pour télécharger le certificat du fichier "metadata.json" au format PDF.
 # Le contenu JSON qui doit être envoyé à l'API est la réponse JSON obtenue à l'issue de la certification (ETAPE 2)
+# Le certificat contient les éléments suivants :
+# - Cryptographic Identifier : Somme de contrôle du fichier "metadata.json".
+# - Transaction ID : Identifiant de la transaction sur la blockchain bloxberg.
+# - Timestamp : Horodatage de la transaction.
+# - Merkle Root : Somme de contrôle de toutes les sommes de contrôle, de l'ensemble des transactions qui font partie d'un bloc dans un réseau blockchain.
 # --------------------------------------------------------------------------------------------
 # Nom du fichier ZIP téléchargé contenant le certificat au format PDF.
 _bloxberg_certificate=bloxberg_certificate-crid-$_crid.zip
@@ -198,7 +203,9 @@ if [ ${_http_request} -ne 200 ] ; then
     exit 1  # Quitter le script avec un code d'erreur
 fi
 
-# Tente d'extraire le fichier zip dans le répertoire courant
+# --------------------------------------------------------------------------------------------
+# Extraction du fichier zip.
+# --------------------------------------------------------------------------------------------
 if unzip -q $_bloxberg_certificate ; then
     mv -f $_bloxberg_certificate $3/$_bloxberg_certificate
 else
