@@ -213,7 +213,7 @@ if ! unzip -q $_bloxberg_certificate ; then
 else
     # Déplacement du certificat sous le nom "bloxberg-certificate.pdf"
     # vers le répertoire contenant le jeu de données.
-    mv -f $_bloxberg_certificate_PDF $3/bloxberg-certificate.pdf
+    mv -f $_bloxberg_certificate_PDF $3/bloxberg-blockchain-certificate.pdf
 fi
 
 # --------------------------------------------------------------------------------------------
