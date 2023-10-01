@@ -211,8 +211,9 @@ if ! unzip -q $_bloxberg_certificate ; then
     echo "Erreur lors de l'extraction !"
     exit 1  # Quitter le script avec un code d'erreur
 else
-    # Déplacement du certificat au format PDF vers le répertoire contenant le jeu de données.
-    mv -f $_bloxberg_certificate_PDF $3/$_bloxberg_certificate_PDF
+    # Déplacement du certificat sous le nom "bloxberg-certificate.pdf"
+    # vers le répertoire contenant le jeu de données.
+    mv -f $_bloxberg_certificate_PDF $3/bloxberg-certificate.pdf
 fi
 
 # --------------------------------------------------------------------------------------------
