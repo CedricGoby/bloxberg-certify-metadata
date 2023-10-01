@@ -42,5 +42,5 @@ Cédric GOBY ([Agap Institut](https://umr-agap.cirad.fr/)) - [ORCID 0009-0004-84
 
 ## Licence
 
-GPL-3+ (https://www.gnu.org/licenses/gpl-3.0.txt)
+[GNU General Public License v3.0 or later](https://www.gnu.org/licenses/gpl-3.0-standalone.html)
 
